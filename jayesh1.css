@@ -6,6 +6,7 @@
   --accent: #2563eb;
   --text-dark: #111827;
   --text-highlight: #020509;
+  --text-light: #6b7280;
   --border: #e5e7eb;
   --shadow: rgba(0, 0, 0, 0.08);
 }
@@ -29,6 +30,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 999;
+  flex-wrap: wrap;
 }
 
 nav .logo {
@@ -59,8 +61,8 @@ nav ul li a:hover {
 /* Hero Section */
 header.hero {
   background: url('background.jpeg') no-repeat center center/cover;
-  height: 50vh;
-  width: 90vw;
+  height: auto;
+  width: 100%;
   margin: 2rem auto;
   display: flex;
   justify-content: center;
@@ -69,7 +71,9 @@ header.hero {
   color: rgb(20, 10, 10);
   padding: 2rem;
   box-shadow: 0 2px 8px var(--shadow);
+  flex-direction: column;
 }
+
 .profile-pic {
   width: 120px;
   height: 120px;
@@ -81,7 +85,7 @@ header.hero {
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   color: var(--accent);
 }
 
@@ -159,18 +163,45 @@ a:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   nav ul {
     flex-direction: column;
+    width: 100%;
     gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 0.5rem 0;
+    width: 100%;
   }
 
   .hero h1 {
     font-size: 2rem;
+    text-align: center;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    text-align: center;
   }
 
   header.hero {
-    height: 50vh;
-    padding: 1.5rem;
+    padding: 2rem 1rem;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
   }
 
   section {
